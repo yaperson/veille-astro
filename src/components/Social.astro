@@ -1,0 +1,27 @@
+---
+const { platform, username } = Astro.props;
+---
+
+<a class="social" href={`https://www.${platform}.com/${username}`} target="_blank" title={platform}>
+    <i class={`fi fi-brands-${platform}`}></i>
+</a>
+
+<style lang="scss">
+    .social {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: fit-content;
+        padding: 0.5rem 1rem;
+        color: white;
+        background-color: #4c1d95;
+        text-decoration: none;
+        transition: 0.2s;
+
+        &:hover {
+            background-color: #4c1d9570;
+            padding: 0.5rem 2rem;
+            transition: 0.2s;
+        }
+    }
+</style>
