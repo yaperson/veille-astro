@@ -1,17 +1,15 @@
 ---
 const {url, title, tags} = Astro.props;
 ---
-<a  href={url}>
+<a  href={url} class="articleUrl">
     <div class="blog">
         <p>{title}</p>
         <div class="blog__tags">
             {
                 tags.map((tag) => (
-                        <p class="tag">
-                            <a href={`/tags/${tag}`}>
-                                <i class="fi fi-rr-tags" /> {tag}
-                            </a>
-                        </p>
+                    <a  class="tag" href={`/tags/${tag}`}>
+                        <i class="fi fi-rr-tags" /> {tag}
+                    </a>
                 ))
             }
         </div>
@@ -25,9 +23,23 @@ const {url, title, tags} = Astro.props;
         box-shadow: 0 0 16px 0px #2f2f2f1c;
         border-radius: 0.5em;
         background-color: rgba(250, 250, 250, 0.482);
+        margin: 1em;
         p {
             padding-left: 1em;
             padding-right: 1em;
+        }
+        .articleUrl {
+            color: rgb(5 7 8);
+            font-weight: 600;
+            text-decoration: underline;
+            text-decoration-color: #50b3ff;
+            text-decoration-style: wavy;
+            transition: 0.2s;
+            &:hover {
+                filter: contrast(0.5);
+                text-decoration-style: dashed;
+                transition: 0.2s;
+            }
         }
         &:hover {
             box-shadow: 0 0 16px 0px rgb(47 47 47 / 24%);
