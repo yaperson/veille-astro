@@ -5,6 +5,22 @@
   --color-link: rgb(4, 118, 225);
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 0.2em;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(110, 110, 110, 0.493);
+  border-radius: 0.5em;
+}
+
 * {
   box-sizing: border-box;
 }

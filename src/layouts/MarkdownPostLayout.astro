@@ -36,3 +36,14 @@ const { frontmatter } = Astro.props;
     };
     
 </script>
+
+<style>
+.generic-link {
+  color: var(--color-link);
+
+  &:hover {
+    cursor: pointer;
+    filter: contrast(0.2);
+  }
+}
+</style>

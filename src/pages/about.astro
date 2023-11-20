@@ -1,42 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const pageTitle = "About Me";
-const identity = {
-    firstName: "Yanis",
-    country: "France",
-    occupation: "Front dev",
-    hobbies: ["Car", "motorcycle", "music"],
-};
-const skills = ["HTML", "CSS", "JavaScript", "VueJs", "Astro", "Writing Docs"];
-const happy = true;
-const finishted = true;
-const goal = 3;
+const pageTitle = "About";
 ---
 <BaseLayout pageTitle={pageTitle}>
     <h2>{pageTitle}</h2>
 
-    <p>Here are a few facts about me:</p>
-    <ul>
-        <li>My name is {identity.firstName}.</li>
-        <li>
-            I live in {identity.country} and I work as a {identity.occupation}.
-        </li>
-        {
-            identity.hobbies.length >= 2 && (
-                <li>
-                    Two of my hobbies are: {identity.hobbies[0]} and{" "}
-                    {identity.hobbies[1]}
-                </li>
-            )
-        }
-    </ul>
-    <p>My skills are:</p>
-    <ul>
-        {skills.map((skill) => <li class="skill">{skill}</li>)}
-    </ul>
+    <p>This is my tool for doing some documentation and technology watch</p>
 
-    {happy && <p>Happy !</p>}
-    {finishted && <p>Finishted is the tutorial</p>}
-    {goal === 3 ? <p>Goal is 3</p> : <p>Goal is NOT 3</p>}
 </BaseLayout>

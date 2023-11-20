@@ -10,40 +10,74 @@ pubDate: 2023-11-02
 tags: ["documentation", "deployment"]
 draft: true
 ---
+export const link = "generic-link" 
 
 ## Summary
 
 - Merge branch to develop
-- Build the project in preprod mode
-- Connect in SSH on the serv 15 (preprod server)
+- Build the project
+- Connect in SSH on the serv
 - Push build on server with SCP
 - Test in preprod environment
 - Merge dev to master if all i ok
 
+### Merge the conceerned branch
+
+You can merge the branch you want with VS Code directly (other code editer can make that to) or in command line if you'r a pure linux geek with a Debian t-shirt.
+
+#### VS Code
+
+#### Command line
+
+```cmd
+git merge my-branch
+```
+
+for more, see the <a class={link} href="https://git-scm.com/docs/git-merge">Git merge documentation</a>
+
+### Build the project
+
+We whant to deploy the project in preprod mode, so we gonna look in package.json all differents script for build our project, and take the good one
+If you doesn't have any script, don't pannic, just go to the documentation of your framework.
+
+here, the command I use : ```yarn build-preprod```
+
+For some of there project, we build in prod directly.
+
+Now, just wait... and drink a coffe ☕
 
 ### Connect in SSH
 
-We want to deploy in preprod, it's server 15, see on the paper in the table :)
+We want to deploy in preprod, it's server 15, for another deployment (prod, or other) look the paper on the table :)
 
-For connect to server in SSH, open a terminal and run : **```ssh user@127.0.0.1```** (user @ ip) 
+For connect to server in SSH, open a terminal and run: **```ssh user@127.0.0.1```** (user @ ip) 
 
 ### Push to server
 
-send to server 15 the build of project with SCP :
+Now, we going to send the project build with the SCP command.
+
+For more information, see the <a class={link} href="https://www.commandlinux.com/man-page/man1/scp.1.html">SCP documentation</a>.
+
+For angular project, go to the dist folder, and open CMD for execute the folowing command from your pc:
 
 ```cmd
-scp -r device-manager/ user@127.0.0.1 :/path/to/send/manager-version
+scp -r project-folder-to-send/ user@127.0.0.1:/path/to/send/manager-version
 ```
 
+Now on the server, copy the last version (for backup)
+
 ```cmd
-cp -rp ./myproject /home/path/to/send/project-version
+cp -rp myproject myproject_bkp
 ```
 
 Go to the directory verify if the project is here.
 
-If all is ok, copy it in the html folder :
+If all is ok, copy it in the html folder:
 
 ```cmd
 cp myproject-lastVersion /var/www/html
 ```
 
+Now, go on the URL for test in preprod your project.
+
+Globaly, it's the same steps for deploy in prodution!
