@@ -8,5 +8,7 @@ export default defineConfig({
   integrations: [mdx()],
   markdown: {
     drafts: true
-  }
+  },
+  site: 'https://yaperson.github.io',
+  base: '/veille-astro',
 });
