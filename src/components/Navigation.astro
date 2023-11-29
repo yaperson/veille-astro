@@ -1,8 +1,11 @@
 ---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+
 ---
 <div class="nav__links">
-    <a href="/veille-astro/">Home</a>
-    <a href="/veille-astro/about">About</a>
-    <a href="/veille-astro/blog">Blog</a>
-    <a href="/veille-astro/tags">Tags</a>
+    <a href={getRelativeLocaleUrl('fr', '/')}>Home</a>
+    <a href={getRelativeLocaleUrl('fr', '/about')}>About</a>
+    <a href={getRelativeLocaleUrl('fr', '/blog')}>Blog</a>
+    <a href={getRelativeLocaleUrl('en', '/tags')}>Tags</a>
 </div>

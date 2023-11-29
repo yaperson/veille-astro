@@ -11,4 +11,14 @@ export default defineConfig({
   },
   site: 'https://yaperson.github.io',
   base: '/veille-astro',
+  experimental: {
+    i18n: {
+      defaultLocale: "en",
+      locales: ["en", "fr"],
+      routingStrategy: "prefix-other-locales",
+      fallback: {
+        fr: "en"
+      }
+    }
+  }
 });
